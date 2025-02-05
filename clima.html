@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima - Tema Escuro</title>
+    <!-- Importando Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/weather.css"> <!-- Somente no clima.html -->
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <div class="navbar">
+        <a href="index.html">Relógio</a> |
+        <a href="countdown.html">Contagem Regressiva</a>
+    </div>
+
+    <!-- Menu Hamburger -->
+    <div class="menu-hamburger">
+        <div class="hamburger-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#bb86fc" viewBox="0 0 24 24">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+            </svg>
+        </div>
+        <ul class="menu-dropdown">
+            <li><a href="index.html">Relógio</a></li>
+            <li><a href="countdown.html">Contagem Regressiva</a></li>
+        </ul>
+    </div>
+
+    <!-- Container do Clima -->
+    <div class="weather-container">
+        <!-- Campo de Pesquisa -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Digite o CEP ou nome da cidade..." />
+            <button id="searchButton" class="search-button">Buscar</button>
+        </div>
+
+        <!-- Informações Climáticas -->
+        <div class="icon">
+            <img id="weather-icon" src="" alt="Ícone do clima" />
+        </div>
+        <div id="temperature" class="temperature">--°C</div>
+        <div id="description" class="description">Carregando...</div>
+        <div id="location" class="location">Localização</div>
+        <div id="details" class="details">
+            <span id="feels-like">Sensação: --°C</span> |
+            <span id="humidity">Umidade: --%</span> |
+            <span id="wind">Vento: -- km/h (--)</span>
+        </div>
+    </div>
+    <script src="assets/js/navbar.js" defer></script>
+    <script src="assets/js/weather.js"></script>
+</body>
+</html>

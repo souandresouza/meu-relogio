@@ -1,0 +1,94 @@
+/* Estilo para o menu hamburger */
+.menu-hamburger {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.hamburger-icon svg {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger-icon svg:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo para o menu dropdown */
+.menu-dropdown {
+    display: none; /* Oculto por padrão */
+    position: absolute;
+    top: 60px; /* Abaixo do ícone */
+    left: 20px;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    list-style: none;
+    z-index: 10;
+}
+
+.menu-dropdown li {
+    margin: 5px 0;
+}
+
+.menu-dropdown li a {
+    color: #bb86fc;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu-dropdown li a:hover {
+    color: #9c27b0;
+}
+
+/* Mostrar o menu dropdown quando o hamburger for clicado */
+.menu-hamburger.active .menu-dropdown {
+    display: block;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 767px) {
+    /* Ocultar a barra de navegação em telas pequenas */
+    .navbar {
+        display: none;
+    }
+
+    /* Exibir o menu hamburger em telas pequenas */
+    .menu-hamburger {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Ocultar o menu hamburger em telas grandes */
+    .menu-hamburger {
+        display: none;
+    }
+}
+
+/* Estilo para a barra de navegação */
+.navbar {
+    position: absolute; /* Fixa a posição no topo */
+    top: 20px; /* Espaçamento do topo */
+    left: 20px; /* Espaçamento da esquerda */
+    z-index: 10; /* Garante que fique acima de outros elementos */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+.navbar a {
+    color: #bb86fc;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #9c27b0;
+}

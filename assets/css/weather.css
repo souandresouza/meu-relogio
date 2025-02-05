@@ -1,0 +1,90 @@
+/* Estilo para o container do clima */
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Ícone do clima */
+.icon img {
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 20px;
+}
+
+/* Temperatura */
+.temperature {
+    font-size: 10vw;
+    font-weight: 700;
+    color: #bb86fc;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Descrição do clima */
+.description {
+    font-size: 4vw;
+    font-weight: 400;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Localização */
+.location {
+    font-size: 3vw;
+    font-weight: 400;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Detalhes adicionais */
+.details {
+    font-size: 2vw;
+    font-weight: 400;
+    color: #e0e0e0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Campo de pesquisa */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    border: 2px solid #bb86fc;
+    border-radius: 5px 0 0 5px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.search-container input:focus {
+    border-color: #9c27b0;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: #bb86fc;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.search-container button:hover {
+    background-color: #9c27b0;
+}

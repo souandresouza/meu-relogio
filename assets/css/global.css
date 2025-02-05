@@ -1,0 +1,33 @@
+/* Estilo global */
+body {
+    background-color: #121212; /* Fundo escuro */
+    color: #ffffff; /* Texto branco */
+    font-family: 'Montserrat', sans-serif; /* Fonte principal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative; /* Para posicionar elementos absolutos */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 480px) {
+    .temperature, .countdown, .time {
+        font-size: 15vw;
+        letter-spacing: 0.6vw;
+    }
+    .description, .date, .message {
+        font-size: 5vw;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+    .temperature, .countdown, .time {
+        font-size: 10vw;
+        letter-spacing: 0.4vw;
+    }
+    .description, .date, .message {
+        font-size: 3.5vw;
+    }
+}

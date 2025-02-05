@@ -1,0 +1,35 @@
+/* Container do relógio */
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Ícone de relógio */
+.icon svg {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 5vh;
+}
+
+/* Estilo do tempo */
+.time {
+    font-size: 12vw;
+    font-weight: 700;
+    letter-spacing: 0.5vw;
+    color: #bb86fc;
+    margin-bottom: 2vh;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilo da data */
+.date {
+    font-size: 4vw;
+    font-weight: 400;
+    color: #e0e0e0;
+    letter-spacing: 0.2vw;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}

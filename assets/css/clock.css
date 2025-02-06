@@ -5,31 +5,65 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    max-width: 90%; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 /* Ícone de relógio */
 .icon svg {
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 5vh;
+    width: clamp(4rem, 8vw, 8rem); /* Escala responsiva com limite máximo */
+    height: auto;
+    margin-bottom: 1em;
+    transition: transform 0.3s ease-in-out, fill 0.3s ease-in-out;
+}
+
+.icon svg:hover {
+    transform: scale(1.1);
+    fill: #bb86fc;
 }
 
 /* Estilo do tempo */
 .time {
-    font-size: 12vw;
+    font-size: clamp(2rem, 14vw, 8rem); /* Limita o tamanho mínimo, ideal e máximo */
     font-weight: 700;
     letter-spacing: 0.5vw;
-    color: #bb86fc;
-    margin-bottom: 2vh;
-    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    color: #d5aaff;
+    margin-bottom: 0.5em;
+    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease-in-out;
 }
 
 /* Estilo da data */
 .date {
-    font-size: 4vw;
+    font-size: clamp(1rem, 5vw, 3rem); /* Limita o tamanho mínimo, ideal e máximo */
     font-weight: 400;
-    color: #e0e0e0;
+    color: #f0f0f0;
     letter-spacing: 0.2vw;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 360px) {
+    .time {
+        font-size: 12vw;
+        letter-spacing: 0.4vw;
+    }
+    .date {
+        font-size: 4vw;
+        letter-spacing: 0.15vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    .time {
+        font-size: 6rem; /* Tamanho fixo para desktops grandes */
+        letter-spacing: 0.3rem;
+    }
+    .date {
+        font-size: 2rem;
+        letter-spacing: 0.1rem;
+    }
+    .icon svg {
+        width: 8rem; /* Tamanho fixo para o ícone */
+    }
 }

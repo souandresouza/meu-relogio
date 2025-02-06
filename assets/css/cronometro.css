@@ -1,0 +1,180 @@
+/* Estilo básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1e1e; /* Fundo escuro */
+    color: #ffffff; /* Cor do texto */
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Navbar */
+.navbar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+.navbar a {
+    color: #bb86fc;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #9c27b0;
+}
+
+/* Menu Hamburger */
+.menu-hamburger {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    cursor: pointer;
+    display: none; /* Oculto por padrão */
+}
+
+.hamburger-icon svg {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger-icon svg:hover {
+    transform: scale(1.1);
+}
+
+.menu-dropdown {
+    display: none; /* Oculto por padrão */
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    list-style: none;
+    z-index: 10;
+}
+
+.menu-dropdown li {
+    margin: 5px 0;
+}
+
+.menu-dropdown li a {
+    color: #bb86fc;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu-dropdown li a:hover {
+    color: #9c27b0;
+}
+
+.menu-hamburger.active .menu-dropdown {
+    display: block;
+}
+
+/* Cronômetro */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.stopwatch {
+    font-size: 6rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    line-height: 1;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.stopwatch:hover {
+    transform: scale(1.05);
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+#start-pause {
+    background-color: #481191;
+    color: white;
+    border: 1px solid #ffffff;
+}
+
+#stop {
+    background-color: #a7110e;
+    color: white;
+    border: 1px solid #ffffff;
+}
+
+#reset {
+    background-color: #047386;
+    color: white;
+    border: 1px solid #ffffff;
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+    .navbar {
+        display: none; /* Oculta a barra de navegação em telas pequenas */
+    }
+
+    .menu-hamburger {
+        display: block; /* Exibe o menu hamburger */
+    }
+
+    .stopwatch {
+        font-size: 4.5rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .menu-hamburger {
+        display: none; /* Oculta o menu hamburger em telas grandes */
+    }
+}

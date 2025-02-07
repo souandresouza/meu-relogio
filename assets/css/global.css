@@ -71,18 +71,23 @@ body {
 /* Breakpoints para responsividade */
 
 /* Dispositivos móveis (modo retrato) */
-@media (max-width: 600px) {
+@media (max-width: 600px) and (orientation: portrait) {
     .clock-container .time {
-        font-size: 2.5rem; /* Reduz o tamanho da hora */
+        font-size: 4rem; /* Aumenta o tamanho da hora para telas em retrato */
     }
 
     .clock-container .date {
-        font-size: 1rem; /* Reduz o tamanho da data */
+        font-size: 1.5rem; /* Aumenta o tamanho da data */
     }
 
     .nav-btn {
-        font-size: 0.9rem;
-        padding: 8px 16px; /* Diminui o preenchimento dos botões */
+        font-size: 1.2rem; /* Aumenta o tamanho da fonte dos botões */
+        padding: 12px 24px; /* Aumenta o preenchimento dos botões */
+    }
+
+    .navigation-buttons {
+        flex-direction: column; /* Organiza os botões em coluna */
+        gap: 15px; /* Espaçamento maior entre os botões */
     }
 }
 

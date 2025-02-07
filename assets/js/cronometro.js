@@ -1,42 +1,38 @@
-// Função para alternar o tema
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-}
-
-// Cronômetro
 let timer;
 let time = 0;
-
-function updateTime() {
-    const minutes = String(Math.floor(time / 60)).padStart(2, '0');
-    const seconds = String(time % 60).padStart(2, '0');
-    document.getElementById('stopwatch').textContent = `${minutes}:${seconds}`;
-}
+let isRunning = false;
 
 function playPause() {
-    const startPauseButton = document.getElementById('start-pause');
-    if (startPauseButton.textContent === 'Start') {
-        startPauseButton.textContent = 'Pause';
+    const button = document.getElementById('start-pause');
+    if (isRunning) {
+        clearInterval(timer);
+        button.textContent = 'Start';
+    } else {
         timer = setInterval(() => {
             time++;
-            updateTime();
+            updateDisplay();
         }, 1000);
-    } else {
-        startPauseButton.textContent = 'Start';
-        clearInterval(timer);
+        button.textContent = 'Pause';
     }
+    isRunning = !isRunning;
 }
 
 function stop() {
     clearInterval(timer);
-    const startPauseButton = document.getElementById('start-pause');
-    startPauseButton.textContent = 'Start';
+    isRunning = false;
+    document.getElementById('start-pause').textContent = 'Start';
 }
 
 function reset() {
     clearInterval(timer);
+    isRunning = false;
     time = 0;
-    updateTime();
-    const startPauseButton = document.getElementById('start-pause');
-    startPauseButton.textContent = 'Start';
+    document.getElementById('start-pause').textContent = 'Start';
+    updateDisplay();
+}
+
+function updateDisplay() {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    document.getElementById('stopwatch').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }

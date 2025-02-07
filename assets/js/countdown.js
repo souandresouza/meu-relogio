@@ -28,7 +28,7 @@ function updateCountdown() {
 function startCountdown(targetDateTime) {
     targetTime = new Date(targetDateTime).getTime();
 
-    // Salvar a data/hora alvo no localStorage
+    // Salvar a data/hora alvo no localStorage no formato ISO 8601
     localStorage.setItem('targetDateTime', targetDateTime);
 
     // Limpar qualquer intervalo anterior
@@ -39,13 +39,40 @@ function startCountdown(targetDateTime) {
     interval = setInterval(updateCountdown, 1000);
 }
 
+// Função para converter datas no formato DD/MM/YYYY HH:mm para ISO 8601
+function parseDate(input) {
+    const parts = input.split(/[\s/:-]/); // Divide a entrada em partes (dia, mês, ano, hora, minuto)
+    if (parts.length < 5) return null; // Verifica se há todas as partes necessárias
+
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Mês começa em 0 no JavaScript
+    const year = parseInt(parts[2], 10);
+    const hour = parseInt(parts[3], 10);
+    const minute = parseInt(parts[4], 10);
+
+    const date = new Date(year, month, day, hour, minute);
+    if (isNaN(date.getTime())) return null; // Verifica se a data é válida
+
+    return date.toISOString(); // Retorna no formato ISO 8601
+}
+
 // Evento de clique no botão "Iniciar Contagem"
 document.getElementById('startButton').addEventListener('click', function () {
-    const targetDateTime = document.getElementById('targetDateTime').value;
+    const rawInput = document.getElementById('targetDateTime').value.trim();
+    let targetDateTime;
+
+    // Tenta converter a entrada para ISO 8601
+    if (rawInput.includes('/')) {
+        targetDateTime = parseDate(rawInput); // Converte DD/MM/YYYY HH:mm
+    } else {
+        targetDateTime = rawInput; // Assume que já está no formato ISO 8601
+    }
+
     if (!targetDateTime) {
-        alert('Por favor, defina uma data/hora alvo.');
+        alert('Por favor, insira uma data/hora válida no formato DD/MM/YYYY HH:mm ou YYYY-MM-DDTHH:mm.');
         return;
     }
+
     startCountdown(targetDateTime);
 });
 
@@ -58,7 +85,7 @@ window.addEventListener('load', function () {
 
         if (savedTime > now) {
             // Se a data/hora salva ainda for futura, continuar a contagem
-            document.getElementById('targetDateTime').value = savedTargetDateTime; // Preencher o campo
+            document.getElementById('targetDateTime').value = new Date(savedTargetDateTime).toLocaleString(); // Exibe no formato local
             startCountdown(savedTargetDateTime); // Iniciar a contagem regressiva
         } else {
             // Se a data/hora salva já expirou, limpar o localStorage

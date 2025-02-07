@@ -1,33 +1,22 @@
-/* Estilo global */
-body {
-    background-color: #121212; /* Fundo escuro */
-    color: #ffffff; /* Texto branco */
-    font-family: 'Montserrat', sans-serif; /* Fonte principal */
+/* Estilo dos botões de navegação */
+.navigation-buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    position: relative; /* Para posicionar elementos absolutos */
+    gap: 10px;
+    margin-top: 20px;
 }
 
-/* Media Queries para Responsividade */
-@media (max-width: 480px) {
-    .temperature, .countdown, .time {
-        font-size: 15vw;
-        letter-spacing: 0.6vw;
-    }
-    .description, .date, .message {
-        font-size: 5vw;
-    }
+.nav-btn {
+    background-color: #bb86fc;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-@media (min-width: 481px) and (max-width: 900px) {
-    .temperature, .countdown, .time {
-        font-size: 10vw;
-        letter-spacing: 0.4vw;
-    }
-    .description, .date, .message {
-        font-size: 3.5vw;
-    }
+.nav-btn:hover {
+    background-color: #9c27b0;
 }

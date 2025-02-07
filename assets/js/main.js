@@ -1,42 +1,25 @@
-// Função para formatar números com zero à esquerda
-function padZero(num) {
-    return num.toString().padStart(2, '0');
-}
+// assets/js/main.js
 
-// Função para atualizar o relógio
-function updateClock() {
-    const timeElement = document.getElementById('time');
-    const dateElement = document.getElementById('date');
-
-    // Verificar se os elementos existem
-    if (!timeElement || !dateElement) return;
-
-    const now = new Date();
-    // Extrair horas, minutos e segundos
-    const hours = padZero(now.getHours());
-    const minutes = padZero(now.getMinutes());
-    const seconds = padZero(now.getSeconds());
-    // Formatar a data
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = now.toLocaleDateString('pt-BR', options);
-    // Atualizar o DOM
-    timeElement.textContent = `${hours}:${minutes}:${seconds}`;
-    dateElement.textContent = formattedDate;
-}
-
-// Inicializar o relógio apenas se os elementos estiverem presentes
-if (document.getElementById('time') && document.getElementById('date')) {
-    updateClock(); // Atualizar imediatamente
-    setInterval(updateClock, 1000); // Atualizar a cada segundo
-}
-
-// Função para alternar o menu dropdown
 document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerIcon = document.querySelector('.hamburger-icon');
-    if (hamburgerIcon) {
-        hamburgerIcon.addEventListener('click', () => {
-            const menu = document.querySelector('.menu-hamburger');
-            menu.classList.toggle('active');
+    const updateTime = () => {
+        const now = new Date();
+        let hours = now.getHours().toString().padStart(2, '0');
+        let minutes = now.getMinutes().toString().padStart(2, '0');
+        let seconds = now.getSeconds().toString().padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        
+        document.getElementById('time').textContent = timeString;
+
+        const dateString = now.toLocaleDateString('pt-BR', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
         });
-    }
+
+        document.getElementById('date').textContent = dateString;
+    };
+
+    setInterval(updateTime, 1000);
+    updateTime(); // Atualiza o relógio imediatamente ao carregar a página
 });

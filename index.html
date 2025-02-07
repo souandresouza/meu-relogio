@@ -13,17 +13,6 @@
     <link rel="stylesheet" href="assets/css/clock.css"> <!-- Somente no index.html -->
 </head>
 <body>
-    <!-- Barra de Navegação Fixa -->
-    <nav class="navbar-fixed">
-        <div class="container">
-            <ul class="nav-buttons">
-                <li><a href="index.html" class="nav-button">Relógio</a></li>
-                <li><a href="countdown.html" class="nav-button">Contagem Regressiva</a></li>
-                <li><a href="clima.html" class="nav-button">Clima</a></li>
-                <li><a href="cronometro.html" class="nav-button">Cronômetro</a></li>
-            </ul>
-        </div>
-    </nav>
     <!-- Relógio -->
     <div class="clock-container">
         <div class="icon">
@@ -34,6 +23,15 @@
         <div id="time" class="time">00:00:00</div>
         <div id="date" class="date">Segunda-feira, 5 de fevereiro de 2025</div>
     </div>
+
+    <!-- Botões de Navegação -->
+    <div class="navigation-buttons">
+        <a href="index.html" class="nav-btn">Relógio</a>
+        <a href="countdown.html" class="nav-btn">Contagem Regressiva</a>
+        <a href="clima.html" class="nav-btn">Clima</a>
+        <a href="cronometro.html" class="nav-btn">Cronômetro</a>
+    </div>
+
     <!-- Script Principal -->
     <script src="assets/js/main.js" defer></script>
 </body>

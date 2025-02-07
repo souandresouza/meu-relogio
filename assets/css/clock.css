@@ -12,7 +12,7 @@
 }
 
 .clock-container .time {
-    font-size: 4rem;
+    font-size: 6rem;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -38,7 +38,7 @@
 /* Dispositivos móveis (modo paisagem) */
 @media (max-width: 900px) and (orientation: landscape) {
     .clock-container .time {
-        font-size: 2rem; /* Ajusta o tamanho da hora */
+        font-size: 4rem; /* Ajusta o tamanho da hora */
     }
 
     .clock-container .date {
@@ -60,10 +60,10 @@
 /* Desktops e telas grandes */
 @media (min-width: 1025px) {
     .clock-container .time {
-        font-size: 3.5rem; /* Aumenta o tamanho da hora */
+        font-size: 6rem; /* Aumenta o tamanho da hora */
     }
 
     .clock-container .date {
-        font-size: 1.3rem; /* Aumenta o tamanho da data */
+        font-size: 2.5rem; /* Aumenta o tamanho da data */
     }
 }

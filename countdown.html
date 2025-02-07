@@ -6,38 +6,16 @@
     <title>Contagem Regressiva</title>
     <!-- Importando Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Estilos Modulares -->
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Estilos Globais -->
     <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/navbar.css">
-    <link rel="stylesheet" href="assets/css/countdown.css"> <!-- Somente no countdown.html -->
+    <!-- Estilos Específicos da Contagem Regressiva -->
+    <link rel="stylesheet" href="assets/css/countdown.css">
 </head>
 <body>
-    <!-- Barra de Navegação (Visível em Telas Maiores) -->
-    <div class="navbar">
-        <a href="index.html">Relógio</a> |
-        <a href="clima.html">Clima</a> |
-        <a href="cronometro.html">Cronômetro</a>
-    </div>
-
-    <!-- Menu Hamburger (Visível em Telas Menores) -->
-    <div class="menu-hamburger">
-        <div class="hamburger-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#bb86fc" viewBox="0 0 24 24">
-                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-            </svg>
-        </div>
-        <ul class="menu-dropdown">
-            <li><a href="index.html">Relógio</a></li>
-            <li><a href="clima.html">Clima</a></li>
-        </ul>
-    </div>
-
     <!-- Contagem Regressiva -->
     <div class="countdown-container">
         <div id="countdown" class="countdown">00:00:00:00</div>
         <div id="message" class="message">Tempo restante...</div>
-
         <!-- Input para Data/Hora Alvo -->
         <div class="input-container">
             <label for="targetDateTime">Definir data/hora alvo:</label>
@@ -46,8 +24,15 @@
         </div>
     </div>
 
+    <!-- Botões de Navegação -->
+    <div class="navigation-buttons">
+        <a href="index.html" class="nav-btn">Relógio</a>
+        <a href="countdown.html" class="nav-btn">Contagem Regressiva</a>
+        <a href="clima.html" class="nav-btn">Clima</a>
+        <a href="cronometro.html" class="nav-btn">Cronômetro</a>
+    </div>
+
     <!-- Script Principal -->
     <script src="assets/js/countdown.js" defer></script>
-    <script src="assets/js/navbar.js" defer></script>
 </body>
 </html>

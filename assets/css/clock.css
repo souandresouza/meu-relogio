@@ -1,69 +1,140 @@
-/* Container do relógio */
-.clock-container {
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo global para o tema escuro */
+body {
+    background-color: #121212; /* Fundo escuro */
+    color: #ffffff; /* Texto branco */
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+/* Estilo do Relógio */
+.clock-container {
     text-align: center;
-    max-width: 90%; /* Limita a largura máxima */
-    margin: 0 auto; /* Centraliza horizontalmente */
+    margin-bottom: 20px;
 }
 
-/* Ícone de relógio */
-.icon svg {
-    width: clamp(4rem, 8vw, 8rem); /* Escala responsiva com limite máximo */
-    height: auto;
-    margin-bottom: 1em;
-    transition: transform 0.3s ease-in-out, fill 0.3s ease-in-out;
+.clock-container .icon svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+    fill: #bb86fc; /* Cor roxa clara para o ícone */
 }
 
-.icon svg:hover {
-    transform: scale(1.1);
-    fill: #bb86fc;
+.clock-container .time {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-/* Estilo do tempo */
-.time {
-    font-size: clamp(2rem, 14vw, 8rem); /* Limita o tamanho mínimo, ideal e máximo */
-    font-weight: 700;
-    letter-spacing: 0.5vw;
-    color: #d5aaff;
-    margin-bottom: 0.5em;
-    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease-in-out;
+.clock-container .date {
+    font-size: 1.2rem;
+    color: #bb86fc; /* Cor roxa clara para o texto da data */
 }
 
-/* Estilo da data */
-.date {
-    font-size: clamp(1rem, 5vw, 3rem); /* Limita o tamanho mínimo, ideal e máximo */
-    font-weight: 400;
-    color: #f0f0f0;
-    letter-spacing: 0.2vw;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+/* Botões de Navegação */
+.navigation-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões quebrem linha em telas menores */
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-/* Media Queries para Responsividade */
-@media (max-width: 360px) {
-    .time {
-        font-size: 12vw;
-        letter-spacing: 0.4vw;
+.nav-btn {
+    background-color: #1e1e1e; /* Fundo escuro para os botões */
+    color: #ffffff; /* Texto branco */
+    border: 1px solid #bb86fc; /* Borda roxa */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #bb86fc; /* Fundo roxo ao passar o mouse */
+    color: #121212; /* Texto escuro ao passar o mouse */
+    border-color: #bb86fc;
+}
+
+/* Breakpoints para responsividade */
+
+/* Dispositivos móveis (modo retrato) */
+@media (max-width: 600px) and (orientation: portrait) {
+    .clock-container .time {
+        font-size: 4rem; /* Aumenta o tamanho da hora para telas em retrato */
     }
-    .date {
-        font-size: 4vw;
-        letter-spacing: 0.15vw;
+
+    .clock-container .date {
+        font-size: 1.5rem; /* Aumenta o tamanho da data */
+    }
+
+    .nav-btn {
+        font-size: 1.2rem; /* Aumenta o tamanho da fonte dos botões */
+        padding: 12px 24px; /* Aumenta o preenchimento dos botões */
+    }
+
+    .navigation-buttons {
+        flex-direction: column; /* Organiza os botões em coluna */
+        gap: 15px; /* Espaçamento maior entre os botões */
     }
 }
 
-@media (min-width: 1200px) {
-    .time {
-        font-size: 6rem; /* Tamanho fixo para desktops grandes */
-        letter-spacing: 0.3rem;
+/* Dispositivos móveis (modo paisagem) */
+@media (max-width: 900px) and (orientation: landscape) {
+    .clock-container .time {
+        font-size: 2rem; /* Ajusta o tamanho da hora */
     }
-    .date {
-        font-size: 2rem;
-        letter-spacing: 0.1rem;
+
+    .clock-container .date {
+        font-size: 0.9rem; /* Ajusta o tamanho da data */
     }
-    .icon svg {
-        width: 8rem; /* Tamanho fixo para o ícone */
+
+    .nav-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px; /* Diminui ainda mais o preenchimento dos botões */
+    }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .clock-container .time {
+        font-size: 3rem; /* Mantém o tamanho da hora */
+    }
+
+    .clock-container .date {
+        font-size: 1.1rem; /* Ajusta o tamanho da data */
+    }
+
+    .nav-btn {
+        font-size: 1rem;
+        padding: 10px 20px; /* Mantém o preenchimento padrão */
+    }
+}
+
+/* Desktops e telas grandes */
+@media (min-width: 1025px) {
+    .clock-container .time {
+        font-size: 3.5rem; /* Aumenta o tamanho da hora */
+    }
+
+    .clock-container .date {
+        font-size: 1.3rem; /* Aumenta o tamanho da data */
+    }
+
+    .nav-btn {
+        font-size: 1.1rem;
+        padding: 12px 24px; /* Aumenta o preenchimento dos botões */
     }
 }

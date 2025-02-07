@@ -1,154 +1,60 @@
-/* Estilo global */
-body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: visible; /* Evita que o conteúdo seja cortado */
-}
-
-/* Estilo para o container do clima */
+/* Container do Clima */
 .weather-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    max-width: 90%; /* Limita a largura máxima */
-    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
-/* Ícone do clima */
-.icon img {
-    width: clamp(4rem, 8vw, 8rem); /* Escala responsiva com limite máximo */
-    height: auto;
-    margin-bottom: 1em;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-
-.icon img:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-}
-
-/* Temperatura */
-.temperature {
-    font-size: clamp(2rem, 10vw, 6rem); /* Limita o tamanho mínimo, ideal e máximo */
-    font-weight: 700;
-    color: #d5aaff;
-    margin-bottom: 1em;
-    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.6);
-}
-
-/* Descrição do clima */
-.description {
-    font-size: clamp(1rem, 4vw, 2rem);
-    font-weight: 400;
-    color: #f0f0f0;
-    margin-bottom: 1em;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-/* Localização */
-.location {
-    font-size: clamp(0.8rem, 3vw, 1.5rem);
-    font-weight: 400;
-    color: #f0f0f0;
-    margin-bottom: 1em;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-/* Detalhes adicionais */
-.details {
-    font-size: clamp(0.7rem, 2vw, 1.2rem);
-    font-weight: 400;
-    color: #f0f0f0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-/* Campo de pesquisa */
 .search-container {
     display: flex;
+    gap: 10px;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 1em;
+    margin-bottom: 20px;
 }
 
 .search-container input {
-    padding: 0.8em;
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(0.9rem, 1vw, 1.2rem);
-    border: 2px solid #bb86fc;
-    border-radius: 5px 0 0 5px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #bb86fc;
+    border-radius: 5px;
     background-color: #1e1e1e;
     color: #ffffff;
-    transition: border-color 0.3s ease-in-out;
 }
 
-.search-container input:focus {
-    border-color: #9c27b0;
-    outline: none;
-}
-
-.search-container button {
-    padding: 0.8em 1.5em;
+.search-button {
     background-color: #bb86fc;
-    color: #ffffff;
+    color: #121212;
     border: none;
-    border-radius: 0 5px 5px 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(0.9rem, 1vw, 1.2rem);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease;
 }
 
-.search-container button:hover {
-    background-color: #9c27b0;
+.search-button:hover {
+    background-color: #9c27b0; /* Fundo mais escuro ao passar o mouse */
 }
 
-/* Media Queries para Responsividade */
-@media (max-width: 360px) {
-    .temperature {
-        font-size: 10vw;
-        letter-spacing: 0.4vw;
-    }
-    .description {
-        font-size: 5vw;
-        letter-spacing: 0.2vw;
-    }
-    .location {
-        font-size: 8vw;
-    }
-    .details {
-        font-size: 8vw;
-    }
-    .search-container input {
-        font-size: 0.9rem;
-    }
-    .search-container button {
-        font-size: 0.9rem;
-    }
+.temperature {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #bb86fc; /* Cor roxa clara para a temperatura */
 }
 
-@media (min-width: 1200px) {
-    .temperature {
-        font-size: 4rem;
-    }
-    .description {
-        font-size: 2rem;
-    }
-    .location {
-        font-size: 2rem;
-    }
-    .details {
-        font-size: 2rem;
-    }
-    .icon img {
-        width: 9rem;
-    }
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ffffff; /* Texto branco */
+}
+
+.location {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #bb86fc; /* Cor roxa clara para a localização */
+}
+
+.details {
+    font-size: 1rem;
+    color: #ffffff; /* Texto branco */
 }

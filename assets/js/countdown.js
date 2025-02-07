@@ -24,23 +24,6 @@ function updateCountdown() {
     document.getElementById('message').textContent = 'Tempo restante...';
 }
 
-// Função para converter DD-MM-YYYY HH:mm para ISO 8601 (YYYY-MM-DDTHH:mm)
-function parseDate(input) {
-    const parts = input.split(/[\s-:]/); // Divide a entrada em partes (dia, mês, ano, hora, minuto)
-    if (parts.length < 5) return null; // Verifica se há todas as partes necessárias
-
-    const day = parseInt(parts[0], 10);
-    const month = parseInt(parts[1], 10) - 1; // Mês começa em 0 no JavaScript
-    const year = parseInt(parts[2], 10);
-    const hour = parseInt(parts[3], 10);
-    const minute = parseInt(parts[4], 10);
-
-    const date = new Date(year, month, day, hour, minute);
-    if (isNaN(date.getTime())) return null; // Verifica se a data é válida
-
-    return date.toISOString(); // Retorna no formato ISO 8601
-}
-
 // Função para iniciar a contagem regressiva
 function startCountdown(targetDateTime) {
     targetTime = new Date(targetDateTime).getTime();
@@ -56,20 +39,28 @@ function startCountdown(targetDateTime) {
     interval = setInterval(updateCountdown, 1000);
 }
 
+// Função para converter ISO 8601 (YYYY-MM-DDTHH:mm) para DD-MM-YYYY HH:mm
+function formatToBrazilianDate(isoDate) {
+    const date = new Date(isoDate);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Mês começa em 0
+    const year = date.getFullYear();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+
+    return `${day}-${month}-${year} ${hours}:${minutes}`;
+}
+
 // Evento de clique no botão "Iniciar Contagem"
 document.getElementById('startButton').addEventListener('click', function () {
     const rawInput = document.getElementById('targetDateTime').value.trim();
-    let targetDateTime;
-
-    // Tenta converter a entrada para ISO 8601
-    targetDateTime = parseDate(rawInput); // Converte DD-MM-YYYY HH:mm
-
-    if (!targetDateTime) {
-        alert('Por favor, insira uma data/hora válida no formato DD-MM-YYYY HH:mm.');
+    if (!rawInput) {
+        alert('Por favor, insira uma data/hora válida.');
         return;
     }
 
-    startCountdown(targetDateTime);
+    // A entrada já está no formato ISO 8601 (YYYY-MM-DDTHH:mm)
+    startCountdown(rawInput);
 });
 
 // Verificar se há uma data/hora salva no localStorage ao carregar a página
@@ -81,9 +72,9 @@ window.addEventListener('load', function () {
 
         if (savedTime > now) {
             // Se a data/hora salva ainda for futura, continuar a contagem
-            const savedDate = new Date(savedTargetDateTime);
-            const formattedDate = `${String(savedDate.getDate()).padStart(2, '0')}-${String(savedDate.getMonth() + 1).padStart(2, '0')}-${savedDate.getFullYear()} ${String(savedDate.getHours()).padStart(2, '0')}:${String(savedDate.getMinutes()).padStart(2, '0')}`;
-            document.getElementById('targetDateTime').value = formattedDate; // Exibe no formato DD-MM-YYYY HH:mm
+            const formattedDate = formatToBrazilianDate(savedTargetDateTime);
+            document.getElementById('targetDateTime').value = savedTargetDateTime; // Define o valor do input
+            document.getElementById('targetDateTime').setAttribute('value', savedTargetDateTime); // Força o valor no campo
             startCountdown(savedTargetDateTime); // Iniciar a contagem regressiva
         } else {
             // Se a data/hora salva já expirou, limpar o localStorage

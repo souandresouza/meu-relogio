@@ -1,4 +1,5 @@
-// Função para alternar o menu dropdown
+// assets/js/navbar.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerIcon = document.querySelector('.hamburger-icon');
     if (hamburgerIcon) {

@@ -39,18 +39,6 @@ function startCountdown(targetDateTime) {
     interval = setInterval(updateCountdown, 1000);
 }
 
-// Função para converter ISO 8601 (YYYY-MM-DDTHH:mm) para DD-MM-YYYY HH:mm
-function formatToBrazilianDate(isoDate) {
-    const date = new Date(isoDate);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Mês começa em 0
-    const year = date.getFullYear();
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-
-    return `${day}-${month}-${year} ${hours}:${minutes}`;
-}
-
 // Evento de clique no botão "Iniciar Contagem"
 document.getElementById('startButton').addEventListener('click', function () {
     const rawInput = document.getElementById('targetDateTime').value.trim();
@@ -72,9 +60,7 @@ window.addEventListener('load', function () {
 
         if (savedTime > now) {
             // Se a data/hora salva ainda for futura, continuar a contagem
-            const formattedDate = formatToBrazilianDate(savedTargetDateTime);
             document.getElementById('targetDateTime').value = savedTargetDateTime; // Define o valor do input
-            document.getElementById('targetDateTime').setAttribute('value', savedTargetDateTime); // Força o valor no campo
             startCountdown(savedTargetDateTime); // Iniciar a contagem regressiva
         } else {
             // Se a data/hora salva já expirou, limpar o localStorage

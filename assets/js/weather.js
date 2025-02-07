@@ -31,7 +31,7 @@ function fetchWeather(query) {
 
 // Evento de clique no botão "Buscar"
 document.getElementById('searchButton').addEventListener('click', function () {
-    const query = document.getElementById('searchInput').value;
+    const query = document.getElementById('searchInput').value.trim(); // Remove espaços extras
     if (!query) {
         alert('Por favor, insira um CEP ou nome de cidade.');
         return;
@@ -45,5 +45,14 @@ window.addEventListener('load', function () {
     if (lastLocation) {
         document.getElementById('searchInput').value = lastLocation; // Preencher o campo de pesquisa
         fetchWeather(lastLocation); // Buscar os dados climáticos automaticamente
+    } else {
+        // Caso não haja local salvo, exibir mensagem padrão
+        document.getElementById('temperature').textContent = '--°C';
+        document.getElementById('description').textContent = 'Carregando...';
+        document.getElementById('location').textContent = 'Localização';
+        document.getElementById('feels-like').textContent = 'Sensação: --°C';
+        document.getElementById('humidity').textContent = 'Umidade: --%';
+        document.getElementById('wind').textContent = 'Vento: -- km/h (--)';
+        document.getElementById('weather-icon').src = '';
     }
 });

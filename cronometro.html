@@ -1,37 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronômetro</title>
+    <!-- Importando Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Estilos Globais -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    <!-- Estilos Específicos do Cronômetro -->
     <link rel="stylesheet" href="assets/css/cronometro.css">
-    <link rel="stylesheet" href="assets/css/navbar.css">
-    <script src="assets/js/cronometro.js" defer></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="index.html">Relógio</a> |
-        <a href="clima.html">Clima</a> |
-        <a href="countdown.html">Contagem Regressiva</a>
-    </nav>
-
-    <!-- Menu Hamburger -->
-    <div class="menu-hamburger" onclick="toggleMenu()">
-        <div class="hamburger-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#bb86fc"/>
-            </svg>
-        </div>
-        <ul class="menu-dropdown">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Contato</a></li>
-        </ul>
-    </div>
-
     <!-- Cronômetro -->
     <main>
         <div id="stopwatch" class="stopwatch">00:00</div>
@@ -41,5 +22,16 @@
             <button id="reset" class="btn" onclick="reset()">Reset</button>
         </div>
     </main>
+
+    <!-- Botões de Navegação -->
+    <div class="navigation-buttons">
+        <a href="index.html" class="nav-btn">Relógio</a>
+        <a href="countdown.html" class="nav-btn">Contagem Regressiva</a>
+        <a href="clima.html" class="nav-btn">Clima</a>
+        <a href="cronometro.html" class="nav-btn">Cronômetro</a>
+    </div>
+
+    <!-- Script Principal -->
+    <script src="assets/js/cronometro.js" defer></script>
 </body>
 </html>

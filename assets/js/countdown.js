@@ -1,76 +1,58 @@
-// Variáveis globais
-let targetTime = null;
-let interval = null;
-
-// Função para atualizar a contagem regressiva
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetTime - now;
-
-    if (distance <= 0) {
-        clearInterval(interval);
-        document.getElementById('countdown').textContent = '00:00:00:00';
-        document.getElementById('message').textContent = 'Tempo esgotado!';
-        localStorage.removeItem('targetDateTime'); // Remove a data/hora salva após o término
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById('countdown').textContent = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    document.getElementById('message').textContent = 'Tempo restante...';
+// Função para reproduzir um áudio específico
+function tocarAudio(caminho) {
+    const audio = new Audio(caminho);
+    audio.play().catch(error => {
+        console.error('Erro ao reproduzir o áudio:', error);
+    });
 }
 
-// Função para iniciar a contagem regressiva
-function startCountdown(targetDateTime) {
-    targetTime = new Date(targetDateTime).getTime();
+// Função para formatar o tempo (dias, horas, minutos, segundos)
+function formatarTempo(tempo) {
+    const dias = Math.floor(tempo / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((tempo % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((tempo % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((tempo % (1000 * 60)) / 1000);
 
-    // Salvar a data/hora alvo no localStorage no formato ISO 8601
-    localStorage.setItem('targetDateTime', targetDateTime);
-
-    // Limpar qualquer intervalo anterior
-    if (interval) clearInterval(interval);
-
-    // Iniciar a contagem regressiva
-    updateCountdown(); // Atualiza imediatamente
-    interval = setInterval(updateCountdown, 1000);
+    return `${String(dias).padStart(2, '0')}:${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
 }
 
-// Evento de clique no botão "Iniciar Contagem"
-document.getElementById('startButton').addEventListener('click', function () {
-    const rawInput = document.getElementById('targetDateTime').value.trim();
-    if (!rawInput) {
-        alert('Por favor, insira uma data/hora válida.');
-        return;
-    }
+// Função principal para iniciar a contagem regressiva
+function iniciarContagemRegressiva(dataAlvo) {
+    const countdownElement = document.getElementById('countdown');
+    const messageElement = document.getElementById('message');
 
-    // A entrada já está no formato ISO 8601 (YYYY-MM-DDTHH:mm)
-    startCountdown(rawInput);
-});
+    const intervalo = setInterval(() => {
+        const agora = new Date().getTime();
+        const diferenca = dataAlvo - agora;
 
-// Verificar se há uma data/hora salva no localStorage ao carregar a página
-window.addEventListener('load', function () {
-    const savedTargetDateTime = localStorage.getItem('targetDateTime');
-    if (savedTargetDateTime) {
-        const now = new Date().getTime();
-        const savedTime = new Date(savedTargetDateTime).getTime();
-
-        if (savedTime > now) {
-            // Se a data/hora salva ainda for futura, continuar a contagem
-            document.getElementById('targetDateTime').value = savedTargetDateTime; // Define o valor do input
-            startCountdown(savedTargetDateTime); // Iniciar a contagem regressiva
+        if (diferenca <= 0) {
+            clearInterval(intervalo);
+            countdownElement.textContent = '00:00:00:00';
+            messageElement.textContent = 'Tempo esgotado!';
+            tocarAudio('assets/audio/contagem.mp3'); // Reproduz o áudio final
         } else {
-            // Se a data/hora salva já expirou, limpar o localStorage
-            localStorage.removeItem('targetDateTime');
-            document.getElementById('countdown').textContent = '00:00:00:00';
-            document.getElementById('message').textContent = 'Tempo esgotado!';
+            countdownElement.textContent = formatarTempo(diferenca);
+            messageElement.textContent = 'Tempo restante...';
         }
-    } else {
-        // Caso não haja data/hora salva, exibir mensagem padrão
-        document.getElementById('countdown').textContent = '00:00:00:00';
-        document.getElementById('message').textContent = 'Tempo restante...';
+    }, 1000); // Atualiza a cada segundo
+}
+
+// Evento para iniciar a contagem regressiva ao clicar no botão
+document.getElementById('startButton').addEventListener('click', () => {
+    // Reproduz o áudio de teste ao clicar no botão
+    tocarAudio('assets/audio/test_tone.mp3');
+
+    const targetDateTimeInput = document.getElementById('targetDateTime').value;
+    if (!targetDateTimeInput) {
+        alert('Por favor, defina uma data/hora alvo.');
+        return;
     }
+
+    const dataAlvo = new Date(targetDateTimeInput).getTime();
+    if (isNaN(dataAlvo)) {
+        alert('Data/hora inválida. Por favor, tente novamente.');
+        return;
+    }
+
+    iniciarContagemRegressiva(dataAlvo);
 });

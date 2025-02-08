@@ -21,6 +21,9 @@ function iniciarContagemRegressiva(dataAlvo) {
     const countdownElement = document.getElementById('countdown');
     const messageElement = document.getElementById('message');
 
+    // Salva a data/hora alvo no localStorage
+    localStorage.setItem('dataAlvo', dataAlvo);
+
     const intervalo = setInterval(() => {
         const agora = new Date().getTime();
         const diferenca = dataAlvo - agora;
@@ -28,8 +31,9 @@ function iniciarContagemRegressiva(dataAlvo) {
         if (diferenca <= 0) {
             clearInterval(intervalo);
             countdownElement.textContent = '00:00:00:00';
-            messageElement.textContent = 'Tempo esgotado!'; // Atualiza a mensagem final
+            messageElement.textContent = 'Tempo esgotado!';
             tocarAudio('assets/audio/contagem.mp3'); // Reproduz o áudio final
+            localStorage.removeItem('dataAlvo'); // Remove a data alvo do localStorage
         } else {
             countdownElement.textContent = formatarTempo(diferenca);
             messageElement.textContent = 'D : H : M : S'; // Mantém o formato enquanto a contagem está ativa
@@ -55,4 +59,12 @@ document.getElementById('startButton').addEventListener('click', () => {
     }
 
     iniciarContagemRegressiva(dataAlvo);
+});
+
+// Verifica se há uma data/hora alvo salva no localStorage ao carregar a página
+window.addEventListener('load', () => {
+    const savedDataAlvo = localStorage.getItem('dataAlvo');
+    if (savedDataAlvo) {
+        iniciarContagemRegressiva(Number(savedDataAlvo)); // Continua a contagem regressiva
+    }
 });

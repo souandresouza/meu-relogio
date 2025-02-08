@@ -1,5 +1,53 @@
+/* Estilização do Contêiner */
+.countdown-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilização da Contagem Regressiva */
+.countdown {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #bb86fc; /* Cor roxa clara para o tempo */
+}
+
+.message {
+    font-size: 1.2rem;
+    color: #ffffff; /* Texto branco */
+    margin-bottom: 20px;
+}
+
+/* Estilização do Input e Botões */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-container label {
+    font-size: 1rem;
+    color: #ffffff; /* Texto branco */
+}
+
+.input-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #bb86fc;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* Grupo de Botões */
+.button-group {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
 /* Estilização dos Botões */
-.input-container button {
+.button-group button {
     background-color: #bb86fc;
     color: #121212;
     border: none;
@@ -8,10 +56,9 @@
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-left: 10px;
 }
 
-.input-container button:hover {
+.button-group button:hover {
     background-color: #9c27b0; /* Fundo mais escuro ao passar o mouse */
 }
 

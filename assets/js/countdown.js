@@ -28,11 +28,11 @@ function iniciarContagemRegressiva(dataAlvo) {
         if (diferenca <= 0) {
             clearInterval(intervalo);
             countdownElement.textContent = '00:00:00:00';
-            messageElement.textContent = 'Tempo esgotado!';
+            messageElement.textContent = 'Tempo esgotado!'; // Atualiza a mensagem final
             tocarAudio('assets/audio/contagem.mp3'); // Reproduz o áudio final
         } else {
             countdownElement.textContent = formatarTempo(diferenca);
-            messageElement.textContent = 'Tempo restante...';
+            messageElement.textContent = 'D : H : M : S'; // Mantém o formato enquanto a contagem está ativa
         }
     }, 1000); // Atualiza a cada segundo
 }

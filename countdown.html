@@ -16,17 +16,18 @@
 </head>
 <body>
     <!-- Contagem Regressiva -->
-<div class="countdown-container">
-    <div id="countdown" class="countdown">00:00:00:00</div>
-    <div id="message" class="message">D : H : M : S</div> <!-- Texto atualizado -->
-    
-    <!-- Input para Data/Hora Alvo -->
-    <div class="input-container">
-        <label for="targetDateTime">Definir data/hora alvo:</label>
-        <input type="datetime-local" id="targetDateTime" />
-        <button id="startButton" class="start-button">Iniciar Contagem</button>
+    <div class="countdown-container">
+        <div id="countdown" class="countdown">00:00:00:00</div>
+        <div id="message" class="message">D : H : M : S</div>
+        
+        <!-- Input para Data/Hora Alvo -->
+        <div class="input-container">
+            <label for="targetDateTime">Definir data/hora alvo:</label>
+            <input type="datetime-local" id="targetDateTime" />
+            <button id="startButton" class="start-button">Iniciar</button>
+            <button id="saveButton" class="save-button">Salvar</button>
+        </div>
     </div>
-</div>
 
     <!-- Botões de Navegação -->
     <div class="navigation-buttons">

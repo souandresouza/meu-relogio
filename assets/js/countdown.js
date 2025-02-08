@@ -21,9 +21,6 @@ function iniciarContagemRegressiva(dataAlvo) {
     const countdownElement = document.getElementById('countdown');
     const messageElement = document.getElementById('message');
 
-    // Salva a data/hora alvo no localStorage
-    localStorage.setItem('dataAlvo', dataAlvo);
-
     const intervalo = setInterval(() => {
         const agora = new Date().getTime();
         const diferenca = dataAlvo - agora;
@@ -41,11 +38,23 @@ function iniciarContagemRegressiva(dataAlvo) {
     }, 1000); // Atualiza a cada segundo
 }
 
-// Evento para iniciar a contagem regressiva ao clicar no botão
+// Evento para iniciar a contagem regressiva ao clicar no botão "Iniciar"
 document.getElementById('startButton').addEventListener('click', () => {
-    // Reproduz o áudio de teste ao clicar no botão
+    // Reproduz o áudio de teste ao clicar no botão "Iniciar"
     tocarAudio('assets/audio/test_tone.mp3');
 
+    const savedDataAlvo = localStorage.getItem('dataAlvo');
+    if (!savedDataAlvo) {
+        alert('Por favor, salve uma data/hora alvo antes de iniciar.');
+        return;
+    }
+
+    const dataAlvo = Number(savedDataAlvo);
+    iniciarContagemRegressiva(dataAlvo);
+});
+
+// Evento para salvar a data/hora alvo no localStorage ao clicar no botão "Salvar"
+document.getElementById('saveButton').addEventListener('click', () => {
     const targetDateTimeInput = document.getElementById('targetDateTime').value;
     if (!targetDateTimeInput) {
         alert('Por favor, defina uma data/hora alvo.');
@@ -58,7 +67,8 @@ document.getElementById('startButton').addEventListener('click', () => {
         return;
     }
 
-    iniciarContagemRegressiva(dataAlvo);
+    localStorage.setItem('dataAlvo', dataAlvo); // Salva a data/hora alvo no localStorage
+    alert('Data/hora alvo salva com sucesso!');
 });
 
 // Verifica se há uma data/hora alvo salva no localStorage ao carregar a página

@@ -20,6 +20,8 @@
     font-size: 1.2rem;
     color: #ffffff; /* Texto branco */
     margin-bottom: 20px;
+    font-weight: bold; /* Destaca o texto */
+    letter-spacing: 1px; /* Espaçamento entre caracteres */
 }
 .input-container {
     display: flex;

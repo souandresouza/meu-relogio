@@ -9,6 +9,7 @@
 
 .controls {
     display: flex;
+    margin-bottom: 15px;
     gap: 10px;
     justify-content: center;
 }

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contagem Regressiva</title>
-    
-    <!-- Importando a fonte Montserrat -->
+    <!-- SEO Enhancements -->
+    <meta name="description" content="Página de contagem regressiva para eventos importantes.">
+    <meta name="keywords" content="contagem regressiva, timer, eventos, relógio">
+    <!-- Importando Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    
     <!-- Estilos Globais -->
     <link rel="stylesheet" href="assets/css/global.css">
-    
     <!-- Estilos Específicos da Contagem Regressiva -->
     <link rel="stylesheet" href="assets/css/countdown.css">
 </head>
@@ -18,16 +18,12 @@
     <!-- Contagem Regressiva -->
     <div class="countdown-container">
         <div id="countdown" class="countdown">00:00:00:00</div>
-        <div id="message" class="message">D : H : M : S</div>
-        
+        <div id="message" class="message">Tempo restante...</div>
         <!-- Input para Data/Hora Alvo -->
         <div class="input-container">
             <label for="targetDateTime">Definir data/hora alvo:</label>
-            <input type="datetime-local" id="targetDateTime" />
-            <div class="button-group">
-                <button id="startButton" class="start-button">Iniciar</button>
-                <button id="saveButton" class="save-button">Salvar</button>
-            </div>
+            <input type="datetime-local" id="targetDateTime" aria-label="Definir data e hora alvo" placeholder="Selecione a data e hora" />
+            <button id="startButton" class="start-button" aria-label="Iniciar Contagem">Iniciar Contagem</button>
         </div>
     </div>
 
@@ -40,6 +36,22 @@
     </div>
 
     <!-- Script Principal -->
+    <script>
+        function applyTheme() {
+            const hour = new Date().getHours();
+            const body = document.body;
+            if (hour >= 6 && hour < 18) {
+                body.classList.add('light-theme');
+                body.classList.remove('dark-theme');
+            } else {
+                body.classList.add('dark-theme');
+                body.classList.remove('light-theme');
+            }
+        }
+
+        // Apply theme on page load
+        window.addEventListener('load', applyTheme);
+    </script>
     <script src="assets/js/countdown.js" defer></script>
 </body>
 </html>

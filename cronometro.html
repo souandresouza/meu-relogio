@@ -2,26 +2,74 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronômetro</title>
-    <!-- Importando Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <!-- SEO Enhancements -->
+    <meta name="description" content="Página de cronômetro para medir intervalos de tempo.">
+    <meta name="keywords" content="cronômetro, tempo, medição, relógio">
+    <!-- Importando Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Estilos Globais -->
     <link rel="stylesheet" href="assets/css/global.css">
     <!-- Estilos Específicos do Cronômetro -->
-    <link rel="stylesheet" href="assets/css/cronometro.css">
+    <style>
+        /* Estilo do Cronômetro */
+        .stopwatch-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stopwatch {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #bb86fc; /* Cor roxa clara para o tempo */
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .controls button {
+            background-color: #bb86fc;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .controls button:hover {
+            background-color: #9c27b0; /* Fundo mais escuro ao passar o mouse */
+        }
+
+        /* Light Theme */
+        body.light-theme .stopwatch-container {
+            background-color: #fff; /* Light background */
+            color: #000; /* Dark text */
+        }
+
+        /* Dark Theme */
+        body.dark-theme .stopwatch-container {
+            background-color: #000; /* Dark background */
+            color: #fff; /* Light text */
+        }
+    </style>
 </head>
 <body>
     <!-- Cronômetro -->
-    <main>
-        <div id="stopwatch" class="stopwatch">00:00</div>
+    <div class="stopwatch-container">
+        <div id="stopwatch" class="stopwatch">00:00:00</div>
         <div class="controls">
-            <button id="start-pause" class="btn" onclick="playPause()">Start</button>
-            <button id="stop" class="btn" onclick="stop()">Stop</button>
-            <button id="reset" class="btn" onclick="reset()">Reset</button>
+            <button id="startButton" class="start-button">Iniciar</button>
+            <button id="stopButton" class="stop-button">Parar</button>
+            <button id="resetButton" class="reset-button">Resetar</button>
         </div>
-    </main>
+    </div>
 
     <!-- Botões de Navegação -->
     <div class="navigation-buttons">
@@ -32,6 +80,23 @@
     </div>
 
     <!-- Script Principal -->
-    <script src="assets/js/cronometro.js" defer></script>
+    <script src="assets/js/stopwatch.js" defer></script>
+    <!-- Script to toggle themes -->
+    <script>
+        function applyTheme() {
+            const hour = new Date().getHours();
+            const body = document.body;
+            if (hour >= 6 && hour < 18) {
+                body.classList.add('light-theme');
+                body.classList.remove('dark-theme');
+            } else {
+                body.classList.add('dark-theme');
+                body.classList.remove('light-theme');
+            }
+        }
+
+        // Apply theme on page load
+        window.addEventListener('load', applyTheme);
+    </script>
 </body>
 </html>

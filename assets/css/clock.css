@@ -4,6 +4,30 @@
     margin-bottom: 20px;
 }
 
+/* Light Theme */
+body.light-theme .clock-container .icon svg {
+    fill: #000; /* Dark icon for light theme */
+}
+
+body.light-theme .clock-container .time,
+body.light-theme .clock-container .date {
+    color: #000; /* Dark text for light theme */
+    background-color: #fff; /* Light background */
+}
+
+/* Dark Theme */
+body.dark-theme .clock-container .icon svg {
+    fill: #bb86fc; /* Light purple icon for dark theme */
+}
+
+body.dark-theme .clock-container .time,
+body.dark-theme .clock-container .date {
+    color: #bb86fc; /* Light purple text for dark theme */
+    background-color: #000; /* Dark background */
+}
+
+/* Breakpoints para responsividade */
+
 .clock-container .icon svg {
     width: 48px;
     height: 48px;
@@ -21,8 +45,6 @@
     font-size: 1.2rem;
     color: #bb86fc; /* Cor roxa clara para o texto da data */
 }
-
-/* Breakpoints para responsividade */
 
 /* Dispositivos móveis (modo retrato) */
 @media (max-width: 600px) and (orientation: portrait) {

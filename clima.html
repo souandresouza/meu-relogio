@@ -46,5 +46,22 @@
 
     <!-- Script Principal -->
     <script src="assets/js/weather.js" defer></script>
+    <!-- Script to toggle themes -->
+    <script>
+        function applyTheme() {
+            const hour = new Date().getHours();
+            const body = document.body;
+            if (hour >= 6 && hour < 18) {
+                body.classList.add('light-theme');
+                body.classList.remove('dark-theme');
+            } else {
+                body.classList.add('dark-theme');
+                body.classList.remove('light-theme');
+            }
+        }
+
+        // Apply theme on page load
+        window.addEventListener('load', applyTheme);
+    </script>
 </body>
 </html>

@@ -17,13 +17,15 @@
         .stopwatch-container {
             text-align: center;
             margin-bottom: 20px;
+            background-color: #fff; /* Light background */
+            color: #000; /* Dark text */
         }
 
         .stopwatch {
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 10px;
-            color: #bb86fc; /* Cor roxa clara para o tempo */
+            color: #000; /* Dark text for time */
         }
 
         .controls {
@@ -51,11 +53,11 @@
 <body>
     <!-- Cronômetro -->
     <div class="stopwatch-container">
-        <div id="stopwatch" class="stopwatch">00:00:00</div>
+        <div id="stopwatch" class="stopwatch">00:00</div>
         <div class="controls">
-            <button id="startButton" class="start-button">Iniciar</button>
-            <button id="stopButton" class="stop-button">Parar</button>
-            <button id="resetButton" class="reset-button">Resetar</button>
+            <button id="start-pause" class="start-button" onclick="playPause()">Start</button>
+            <button id="stopButton" class="stop-button" onclick="stop()">Stop</button>
+            <button id="resetButton" class="reset-button" onclick="reset()">Reset</button>
         </div>
     </div>
 

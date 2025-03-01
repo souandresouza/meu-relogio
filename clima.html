@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clima</title>
+    <title>Clima - Previsão do Tempo</title>
+    <!-- SEO Improvements -->
+    <meta name="description" content="Página de clima com previsão do tempo e condições atuais.">
+    <meta name="keywords" content="clima, previsão do tempo, temperatura, condições climáticas">
     <!-- Importando Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Estilos Globais -->
@@ -16,8 +19,8 @@
     <div class="weather-container">
         <!-- Campo de Pesquisa -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Digite o CEP ou nome da cidade..." />
-            <button id="searchButton" class="search-button">Buscar</button>
+            <input type="text" id="searchInput" placeholder="Digite o CEP ou nome da cidade..." aria-label="Campo de busca para CEP ou cidade" />
+            <button id="searchButton" class="search-button" aria-label="Botão para buscar clima">Buscar</button>
         </div>
         <!-- Informações Climáticas -->
         <div class="icon">
@@ -35,13 +38,13 @@
 
     <!-- Botões de Navegação -->
     <div class="navigation-buttons">
-        <a href="index.html" class="nav-btn">Relógio</a>
-        <a href="countdown.html" class="nav-btn">Contagem Regressiva</a>
-        <a href="clima.html" class="nav-btn">Clima</a>
-        <a href="cronometro.html" class="nav-btn">Cronômetro</a>
+        <a href="index.html" class="nav-btn" aria-label="Página do Relógio">Relógio</a>
+        <a href="countdown.html" class="nav-btn" aria-label="Página de Contagem Regressiva">Contagem Regressiva</a>
+        <a href="clima.html" class="nav-btn" aria-label="Página do Clima">Clima</a>
+        <a href="cronometro.html" class="nav-btn" aria-label="Página do Cronômetro">Cronômetro</a>
     </div>
 
     <!-- Script Principal -->
-    <script src="assets/js/weather.js"></script>
+    <script src="assets/js/weather.js" defer></script>
 </body>
 </html>

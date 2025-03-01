@@ -17,7 +17,7 @@ function fetchWeather(query) {
             document.getElementById('location').textContent = data.name;
             document.getElementById('feels-like').textContent = `Sensação: ${Math.round(data.main.feels_like)}°C`;
             document.getElementById('humidity').textContent = `Umidade: ${data.main.humidity}%`;
-            document.getElementById('wind').textContent = `Vento: ${Math.round(data.wind.speed)} km/h (${data.wind.deg}°)`;
+            document.getElementById('wind').textContent = `Vento: ${Math.round(data.wind.speed)} km/h (${getCardinalDirection(data.wind.deg)})`;
             document.getElementById('weather-icon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
             // Salvar o último local pesquisado no localStorage
@@ -56,3 +56,21 @@ window.addEventListener('load', function () {
         document.getElementById('weather-icon').src = '';
     }
 });
+
+function getCardinalDirection(degrees) {
+    const directions = ['N', 'NE', 'E', 'SE', 'S', 'SO', 'O', 'NO'];
+    const index = Math.round(degrees / 45) % 8;
+    return directions[index];
+}
+
+function updateWeatherInfo(weatherData) {
+    const temperature = Math.round(weatherData.main.temp);
+    const description = weatherData.weather[0].description;
+    const location = weatherData.name;
+    const feelsLike = Math.round(weatherData.main.feels_like);
+    const humidity = weatherData.main.humidity;
+    const windSpeed = Math.round(weatherData.wind.speed);
+    const windDegrees = weatherData.wind.deg;
+    const windDirection = getCardinalDirection(windDegrees);
+    document.getElementById('wind').textContent = `Vento: ${windSpeed} km/h (${windDirection})`;
+}

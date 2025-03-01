@@ -17,13 +17,8 @@
         .weather-container {
             text-align: center;
             margin-bottom: 20px;
-        }
-
-        .search-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            background-color: #fff; /* Light background */
+            color: #000; /* Dark text */
         }
 
         .search-container input {
@@ -31,13 +26,26 @@
             font-size: 1rem;
             border: 1px solid #bb86fc;
             border-radius: 5px;
-            background-color: #1e1e1e;
-            color: #ffffff;
+            background-color: #fff; /* Light background */
+            color: #000; /* Dark text */
+        }
+
+        .temperature {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #000; /* Dark text for temperature */
+        }
+
+        .description, .location, .details {
+            font-size: 1.2rem;
+            color: #000; /* Dark text */
+            margin-bottom: 10px;
         }
 
         .search-container button {
             background-color: #bb86fc;
-            color: #121212;
+            color: #fff; /* Light text on button */
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -48,24 +56,6 @@
 
         .search-container button:hover {
             background-color: #9c27b0; /* Fundo mais escuro ao passar o mouse */
-        }
-
-        .icon img {
-            width: 100px;
-            height: 100px;
-        }
-
-        .temperature {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #bb86fc; /* Cor roxa clara para a temperatura */
-        }
-
-        .description, .location, .details {
-            font-size: 1.2rem;
-            color: #ffffff; /* Texto branco */
-            margin-bottom: 10px;
         }
     </style>
 </head>

@@ -29,17 +29,3 @@ document.getElementById('startButton').addEventListener('click', function () {
         messageElement.textContent = 'Tempo restante...';
     }, 1000);
 });
-
-function applyTheme() {
-    const hour = new Date().getHours();
-    const body = document.body;
-    if (hour >= 6 && hour < 18) {
-        body.classList.add('light-theme');
-        body.classList.remove('dark-theme');
-    } else {
-        body.classList.add('dark-theme');
-        body.classList.remove('light-theme');
-    }
-}
-// Chame a função applyTheme() para aplicar o tema inicial
-window.addEventListener('load', applyTheme);

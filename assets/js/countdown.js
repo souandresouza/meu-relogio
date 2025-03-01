@@ -34,11 +34,11 @@ function applyTheme() {
     const hour = new Date().getHours();
     const body = document.body;
     if (hour >= 6 && hour < 18) {
-        body.classList.add('day-theme');
-        body.classList.remove('night-theme');
+        body.classList.add('light-theme');
+        body.classList.remove('dark-theme');
     } else {
-        body.classList.add('night-theme');
-        body.classList.remove('day-theme');
+        body.classList.add('dark-theme');
+        body.classList.remove('light-theme');
     }
 }
 // Chame a função applyTheme() para aplicar o tema inicial

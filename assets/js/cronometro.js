@@ -36,3 +36,16 @@ function updateDisplay() {
     const seconds = time % 60;
     document.getElementById('stopwatch').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
+function applyTheme() {
+    const hour = new Date().getHours();
+    const body = document.body;
+    if (hour >= 6 && hour < 18) {
+        body.classList.add('light-theme');
+        body.classList.remove('dark-theme');
+    } else {
+        body.classList.add('dark-theme');
+        body.classList.remove('light-theme');
+    }
+}
+// Chame a função applyTheme() para aplicar o tema inicial
+window.addEventListener('load', applyTheme);

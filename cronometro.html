@@ -4,75 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronômetro</title>
-    <!-- SEO Enhancements -->
     <meta name="description" content="Página de cronômetro para medir intervalos de tempo.">
     <meta name="keywords" content="cronômetro, tempo, medição, relógio">
-    <!-- Importando Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Estilos Globais -->
     <link rel="stylesheet" href="assets/css/global.css">
-    <!-- Estilos Específicos do Cronômetro -->
-    <style>
-        /* Estilo do Cronômetro */
-        .stopwatch-container {
-            text-align: center;
-            margin-bottom: 20px;
-            background-color: #fff; /* Light background */
-            color: #000; /* Dark text */
-        }
-
-        .stopwatch {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #000; /* Dark text for time */
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .controls button {
-            background-color: #bb86fc;
-            color: #121212;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .controls button:hover {
-            background-color: #9c27b0; /* Fundo mais escuro ao passar o mouse */
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/stopwatch.css"> <!-- Moved specific styles to external file -->
 </head>
 <body>
-    <!-- Cronômetro -->
-    <div class="stopwatch-container">
+    <main class="stopwatch-container">
         <div id="stopwatch" class="stopwatch">00:00</div>
         <div class="controls">
             <button id="start-pause" class="start-button" onclick="playPause()">Start</button>
             <button id="stopButton" class="stop-button" onclick="stop()">Stop</button>
             <button id="resetButton" class="reset-button" onclick="reset()">Reset</button>
         </div>
-    </div>
-
-    <!-- Botões de Navegação -->
-    <div class="navigation-buttons">
+    </main>
+    <nav class="navigation-buttons">
         <a href="index.html" class="nav-btn">Relógio</a>
         <a href="countdown.html" class="nav-btn">Contagem Regressiva</a>
         <a href="clima.html" class="nav-btn">Clima</a>
         <a href="cronometro.html" class="nav-btn">Cronômetro</a>
-    </div>
-
-    <!-- Script Principal -->
+    </nav>
     <script src="assets/js/stopwatch.js" defer></script>
-    <!-- Script to toggle themes -->
-    <script>
-    </script>
 </body>
 </html>

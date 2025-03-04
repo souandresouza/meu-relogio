@@ -4,70 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clima - Previsão do Tempo</title>
-    <!-- SEO Improvements -->
     <meta name="description" content="Página de clima com previsão do tempo e condições atuais.">
     <meta name="keywords" content="clima, previsão do tempo, temperatura, condições climáticas">
-    <!-- Importando Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Estilos Globais -->
     <link rel="stylesheet" href="assets/css/global.css">
-    <!-- Estilos Específicos do Clima -->
-    <style>
-        /* Container do Clima */
-        .weather-container {
-            text-align: center;
-            margin-bottom: 20px;
-            background-color: #fff; /* Light background */
-            color: #000; /* Dark text */
-        }
-
-        .search-container input {
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #bb86fc;
-            border-radius: 5px;
-            background-color: #fff; /* Light background */
-            color: #000; /* Dark text */
-        }
-
-        .temperature {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #000; /* Dark text for temperature */
-        }
-
-        .description, .location, .details {
-            font-size: 1.2rem;
-            color: #000; /* Dark text */
-            margin-bottom: 10px;
-        }
-
-        .search-container button {
-            background-color: #bb86fc;
-            color: #fff; /* Light text on button */
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .search-container button:hover {
-            background-color: #9c27b0; /* Fundo mais escuro ao passar o mouse */
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/weather.css"> <!-- Moved specific styles to external file -->
 </head>
 <body>
-    <!-- Container do Clima -->
-    <div class="weather-container">
-        <!-- Campo de Pesquisa -->
+    <main class="weather-container">
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Digite o CEP ou nome da cidade..." aria-label="Campo de busca para CEP ou cidade" />
             <button id="searchButton" class="search-button" aria-label="Botão para buscar clima">Buscar</button>
         </div>
-        <!-- Informações Climáticas -->
         <div class="icon">
             <img id="weather-icon" src="" alt="Ícone do clima" />
         </div>
@@ -79,19 +27,14 @@
             <span id="humidity">Umidade: --%</span> |
             <span id="wind">Vento: -- km/h (--)</span>
         </div>
-    </div>
-
-    <!-- Botões de Navegação -->
-    <div class="navigation-buttons">
+    </main>
+    <nav class="navigation-buttons">
         <a href="index.html" class="nav-btn" aria-label="Página do Relógio">Relógio</a>
         <a href="countdown.html" class="nav-btn" aria-label="Página de Contagem Regressiva">Contagem Regressiva</a>
         <a href="clima.html" class="nav-btn" aria-label="Página do Clima">Clima</a>
         <a href="cronometro.html" class="nav-btn" aria-label="Página do Cronômetro">Cronômetro</a>
-    </div>
-
-    <!-- Script Principal -->
+    </nav>
     <script src="assets/js/weather.js" defer></script>
-    <!-- Script to toggle themes -->
     <script>
         function applyTheme() {
             const hour = new Date().getHours();
@@ -105,7 +48,6 @@
             }
         }
 
-        // Apply theme on page load
         window.addEventListener('load', applyTheme);
     </script>
 </body>

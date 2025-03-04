@@ -1,0 +1,85 @@
+.weather-container {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #000;
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.icon img {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for icons */
+    border-radius: 50%; /* Rounded icon background */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+}
+
+.temperature, .description, .location, .details {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for readability */
+    margin-bottom: 10px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column; /* Stack input and button vertically */
+    align-items: center; /* Center align items */
+    margin-bottom: 20px; /* Add margin to separate from other elements */
+}
+
+.search-container input, .search-container button {
+    width: 100%; /* Ensure full width */
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 4vw;
+    box-sizing: border-box;
+}
+
+.temperature {
+    font-size: 10vw; /* Large font size for temperature */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description, .location, .details {
+    font-size: 6vw; /* Responsive font size */
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .temperature {
+        font-size: 6vw; /* Adjust font size for smaller screens */
+    }
+
+    .description, .location, .details {
+        font-size: 4vw; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .search-container {
+        flex-direction: row; /* Align input and button horizontally on desktop */
+        justify-content: center; /* Center align horizontally */
+    }
+
+    .search-container input, .search-container button {
+        width: auto; /* Allow natural width */
+        margin: 0 5px; /* Add horizontal margin */
+        font-size: 1rem; /* Adjust font size for desktop screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .temperature {
+        font-size: 2.5rem;
+    }
+
+    .description, .location, .details {
+        font-size: 1.5rem;
+    }
+
+    .search-container input, .search-container button {
+        font-size: 1rem; /* Adjust font size for desktop screens */
+    }
+}

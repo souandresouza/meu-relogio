@@ -4,107 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relógio - Hora Atual e Data</title>
-    <!-- SEO Improvements -->
     <meta name="description" content="Página de relógio mostrando a hora atual e a data.">
     <meta name="keywords" content="relógio, hora, data, tempo, atual">
-    <!-- Importando Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Estilos Globais -->
     <link rel="stylesheet" href="assets/css/global.css">
-    <!-- Estilos Específicos do Relógio -->
-    <style>
-        /* Estilo do Relógio */
-        .clock-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .clock-container .icon svg {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 10px;
-            fill: #bb86fc; /* Cor roxa clara para o ícone */
-        }
-
-        .clock-container .time {
-            font-size: 6rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .clock-container .date {
-            font-size: 1.2rem;
-            color: #bb86fc; /* Cor roxa clara para o texto da data */
-        }
-
-        /* Breakpoints para responsividade */
-
-        /* Dispositivos móveis (modo retrato) */
-        @media (max-width: 600px) and (orientation: portrait) {
-            .clock-container .time {
-                font-size: 4rem; /* Aumenta o tamanho da hora para telas em retrato */
-            }
-
-            .clock-container .date {
-                font-size: 1.5rem; /* Aumenta o tamanho da data */
-            }
-        }
-
-        /* Dispositivos móveis (modo paisagem) */
-        @media (max-width: 900px) and (orientation: landscape) {
-            .clock-container .time {
-                font-size: 4rem; /* Ajusta o tamanho da hora */
-            }
-
-            .clock-container .date {
-                font-size: 0.9rem; /* Ajusta o tamanho da data */
-            }
-        }
-
-        /* Tablets */
-        @media (min-width: 601px) and (max-width: 1024px) {
-            .clock-container .time {
-                font-size: 3rem; /* Mantém o tamanho da hora */
-            }
-
-            .clock-container .date {
-                font-size: 1.1rem; /* Ajusta o tamanho da data */
-            }
-        }
-
-        /* Desktops e telas grandes */
-        @media (min-width: 1025px) {
-            .clock-container .time {
-                font-size: 6rem; /* Aumenta o tamanho da hora */
-            }
-
-            .clock-container .date {
-                font-size: 2.5rem; /* Aumenta o tamanho da data */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/clock.css">
 </head>
 <body>
-    <!-- Relógio -->
-    <div class="clock-container">
-        <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#bb86fc" viewBox="0 0 24 24">
-                <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 17v-7h-2v7h-5v2h5v-7h2v7h5v-2h-5z"/>
-            </svg>
-        </div>
+    <main class="clock-container">
         <div id="time" class="time">00:00:00</div>
         <div id="date" class="date">Segunda-feira, 5 de fevereiro de 2025</div>
-    </div>
-
-    <!-- Botões de Navegação -->
-    <div class="navigation-buttons">
+    </main>
+    <nav class="navigation-buttons">
         <a href="index.html" class="nav-btn" aria-label="Página do Relógio">Relógio</a>
         <a href="countdown.html" class="nav-btn" aria-label="Página de Contagem Regressiva">Contagem Regressiva</a>
         <a href="clima.html" class="nav-btn" aria-label="Página do Clima">Clima</a>
         <a href="cronometro.html" class="nav-btn" aria-label="Página do Cronômetro">Cronômetro</a>
-    </div>
-
-    <!-- Script Principal -->
+    </nav>
     <script src="assets/js/main.js" defer></script>
 </body>
 </html>

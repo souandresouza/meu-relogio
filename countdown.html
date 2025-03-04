@@ -4,88 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contagem Regressiva</title>
-    <!-- SEO Enhancements -->
     <meta name="description" content="Página de contagem regressiva para eventos importantes.">
     <meta name="keywords" content="contagem regressiva, timer, eventos, relógio">
-    <!-- Importando Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Estilos Globais -->
     <link rel="stylesheet" href="assets/css/global.css">
-    <!-- Estilos Específicos da Contagem Regressiva -->
-    <style>
-        /* Contagem Regressiva */
-        .countdown-container {
-            text-align: center;
-            margin-bottom: 20px;
-            background-color: #fff; /* Light background */
-            color: #000; /* Dark text */
-        }
-
-        .countdown {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #000; /* Dark text for countdown */
-        }
-
-        .message {
-            font-size: 1.2rem;
-            color: #000; /* Dark text */
-            margin-bottom: 20px;
-        }
-
-        .input-container label {
-            font-size: 1rem;
-            color: #000; /* Dark text */
-        }
-
-        .input-container input {
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #bb86fc;
-            border-radius: 5px;
-            background-color: #fff; /* Light background */
-            color: #000; /* Dark text */
-        }
-
-        .input-container button {
-            background-color: #bb86fc;
-            color: #fff; /* Light text on button */
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .input-container button:hover {
-            background-color: #9c27b0; /* Fundo mais escuro ao passar o mouse */
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/countdown.css"> <!-- Moved specific styles to external file -->
 </head>
 <body>
-    <!-- Contagem Regressiva -->
-    <div class="countdown-container">
+    <main class="countdown-container">
         <div id="countdown" class="countdown">00:00:00:00</div>
-        <div id="message" class="message">Tempo restante...</div>
-        <!-- Input para Data/Hora Alvo -->
         <div class="input-container">
             <label for="targetDateTime">Definir data/hora alvo:</label>
             <input type="datetime-local" id="targetDateTime" aria-label="Definir data e hora alvo" placeholder="Selecione a data e hora" />
-            <button id="startButton" class="start-button" aria-label="Iniciar Contagem">Iniciar Contagem</button>
+            <div class="button-container">
+                <button id="startButton" class="start-button" aria-label="Iniciar Contagem">Iniciar Contagem</button>
+                <button id="resetButton" class="reset-button" aria-label="Zerar Contagem">Zerar</button>
+            </div>
         </div>
-    </div>
-
-    <!-- Botões de Navegação -->
-    <div class="navigation-buttons">
+    </main>
+    <nav class="navigation-buttons">
         <a href="index.html" class="nav-btn">Relógio</a>
         <a href="countdown.html" class="nav-btn">Contagem Regressiva</a>
         <a href="clima.html" class="nav-btn">Clima</a>
         <a href="cronometro.html" class="nav-btn">Cronômetro</a>
-    </div>
-
-    <!-- Script Principal -->
+    </nav>
     <script src="assets/js/countdown.js" defer></script>
 </body>
 </html>
